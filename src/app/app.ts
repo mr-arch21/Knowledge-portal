@@ -9,4 +9,8 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
   protected readonly title = signal('knowledge-portal');
+  isRunning:boolean=true;
+  toggle(){
+    this.isRunning=!this.isRunning;
+  }
 }
