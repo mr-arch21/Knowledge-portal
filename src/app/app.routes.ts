@@ -1,9 +1,17 @@
 import { Routes } from '@angular/router';
-import { Dashboard } from './features/dashboard/pages/dashboard/dashboard';
 
 export const routes: Routes = [
     {
-        path:'',
-        component:Dashboard
+        path: '',
+        loadChildren: () =>
+            import('./features/dashboard/dashboard.routes')
+                .then(m => m.DASHBOARD_ROUTES)
+    },
+    {
+        path: 'profile',
+        loadChildren: () =>
+            import('./features/profile/profile.routes')
+                .then(m => m.PROFILE_ROUTES)
+
     }
 ];
