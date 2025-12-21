@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ThemeStateService } from '../../../../core/services/theme-state.service';
 
 @Component({
   selector: 'app-header',
@@ -8,5 +9,9 @@ import { Component } from '@angular/core';
   standalone:true,
 })
 export class Header {
-
+     themeState= inject(ThemeStateService);
+      
+     toggleTheme(){
+       this.themeState.theme.set(!this.themeState.theme());
+     }
 }

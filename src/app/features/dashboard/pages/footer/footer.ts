@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ThemeStateService } from '../../../../core/services/theme-state.service';
 
 @Component({
   selector: 'app-footer',
@@ -9,5 +10,5 @@ import { Component } from '@angular/core';
 
 })
 export class Footer {
-
+     themeState=inject(ThemeStateService)
 }
