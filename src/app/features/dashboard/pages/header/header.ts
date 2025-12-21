@@ -12,6 +12,6 @@ export class Header {
      themeState= inject(ThemeStateService);
       
      toggleTheme(){
-       this.themeState.theme.set(!this.themeState.theme());
+         this.themeState.toggleTheme();
      }
 }
