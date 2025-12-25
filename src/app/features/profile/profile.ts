@@ -3,6 +3,7 @@ import { Api } from '../../core/api';
 import { AsyncPipe, JsonPipe } from '@angular/common';
 import { AuthStateService } from '../../core/services/auth-state.service';
 import { AuthStateSignalService } from '../../core/services/auth-state-signal.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -12,6 +13,11 @@ import { AuthStateSignalService } from '../../core/services/auth-state-signal.se
   standalone:true,
 })
 export class Profile implements OnInit {
+    profileData: any;
+
+    constructor(private route: ActivatedRoute) {
+       this.profileData = this.route.snapshot.data['profile'];
+    }
     private api = inject(Api);
     authState=inject(AuthStateService)
     authSignalState=inject(AuthStateSignalService)

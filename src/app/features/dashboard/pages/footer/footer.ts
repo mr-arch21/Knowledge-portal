@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ThemeStateService } from '../../../../core/services/theme-state.service';
 
 @Component({
@@ -6,9 +6,14 @@ import { ThemeStateService } from '../../../../core/services/theme-state.service
   imports: [],
   templateUrl: './footer.html',
   styleUrl: './footer.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   standalone:true,
 
 })
 export class Footer {
-     themeState=inject(ThemeStateService)
+  themeState=inject(ThemeStateService)
+  logRender() {
+    console.log('Footer rendered');
+    return '';
+  }
 }
