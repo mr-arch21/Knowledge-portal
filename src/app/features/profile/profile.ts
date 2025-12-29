@@ -4,10 +4,11 @@ import { AsyncPipe, JsonPipe } from '@angular/common';
 import { AuthStateService } from '../../core/services/auth-state.service';
 import { AuthStateSignalService } from '../../core/services/auth-state-signal.service';
 import { ActivatedRoute } from '@angular/router';
+import { ProfileForm } from '../profile-form/profile-form';
 
 @Component({
   selector: 'app-profile',
-  imports: [AsyncPipe,JsonPipe],
+  imports: [AsyncPipe,JsonPipe , ProfileForm],
   templateUrl: './profile.html',
   styleUrl: './profile.css',
   standalone:true,
