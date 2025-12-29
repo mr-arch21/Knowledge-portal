@@ -11,5 +11,8 @@
   <div *ngIf="form.controls.name.touched && form.controls.name.invalid">
   Name is required
 </div>
+<div *ngIf="form.controls.email.errors?.emailTaken">
+  Email already exists
+</div>
 </form>
 

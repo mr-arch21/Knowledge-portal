@@ -1,0 +1,36 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+
+  <!-- Email -->
+  <input type="email" placeholder="Email" formControlName="email" />
+
+  <div *ngIf="form.controls.email.touched && form.controls.email.invalid">
+    <small *ngIf="form.controls.email.errors?.['required']">
+      Email is required
+    </small>
+    <small *ngIf="form.controls.email.errors?.['email']">
+      Invalid email format
+    </small>
+    <small *ngIf="form.controls.email.errors?.['emailTaken']">
+      Email already exists
+    </small>
+  </div>
+
+  <p *ngIf="form.controls.email.pending">Checking email...</p>
+
+  <!-- Password -->
+  <input type="password" placeholder="Password" formControlName="password" />
+
+  <div *ngIf="form.controls.password.touched && form.controls.password.invalid">
+    <small *ngIf="form.controls.password.errors?.['required']">
+      Password is required
+    </small>
+    <small *ngIf="form.controls.password.errors?.['minlength']">
+      Minimum 6 characters
+    </small>
+  </div>
+
+  <button type="submit" [disabled]="form.invalid">
+    Login
+  </button>
+
+</form>
